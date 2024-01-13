@@ -1,11 +1,7 @@
-"use-strict";
-
 const transcript = document.querySelector(".transcript");
 const pyro = document.querySelector(".pyro");
 const flame = Array.from(document.getElementsByClassName("flame"));
 const audio = new Audio("hbd.mp3");
-// const playBtn = document.querySelector(".btn-play");
-// const stopBtn = document.querySelector(".btn-stop");
 
 let isEnded = false;
 
@@ -29,7 +25,7 @@ const startRecognition = () => {
       isEnded = true;
       recognition.abort();
       audio.play();
-      transcript.innerHTML = "HAPPY BIRTHDAY AARAV 🥳";
+      transcript.innerHTML = "HAPPY BIRTHDAY ANVAY 🥳";
       pyro.classList.remove("hidden");
       flame.forEach((f) => f.classList.add("hidden"));
     } else console.log(text);
@@ -39,6 +35,14 @@ const startRecognition = () => {
     if (isEnded) return;
     recognition.start();
   });
-  recognition.start();
+
+  // Trigger speech recognition on a button click, for example
+  const startButton = document.getElementById("startButton");
+  if (startButton) {
+    startButton.addEventListener("click", () => {
+      recognition.start();
+    });
+  }
 };
+
 startRecognition();
