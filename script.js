@@ -2,6 +2,7 @@ const transcript = document.querySelector(".transcript");
 const pyro = document.querySelector(".pyro");
 const flame = Array.from(document.getElementsByClassName("flame"));
 const audio = new Audio("hbd.mp3");
+const startButton = document.getElementById("startButton");
 
 let isEnded = false;
 
@@ -36,13 +37,9 @@ const startRecognition = () => {
     recognition.start();
   });
 
-  // Trigger speech recognition on a button click, for example
-  const startButton = document.getElementById("startButton");
-  if (startButton) {
-    startButton.addEventListener("click", () => {
-      recognition.start();
-    });
-  }
+  startButton.addEventListener("click", () => {
+    recognition.start();
+  });
 };
 
 startRecognition();
